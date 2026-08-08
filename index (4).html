@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Loading...</title>
+</head>
+<body style="margin:0;background:black;color:#00ff41;font:12px monospace;overflow:hidden">
+<div id=l style="padding:10px"></div>
+<script>
+let a=["CONNECTING NODE","SCANNING PORTS","LOADING MODULE","VERIFYING ACCESS","MAPPING MEMORY","ANALYZING FILESYSTEM","CHECKING SERVICES","SYNC SESSION","PROCESSING DATA","BYPASSING FIREWALL"],
+l=document.getElementById("l"),
+t=setInterval(()=>{
+  for(i=0;i<4;i++){
+    let x=a[Math.floor(Math.random()*a.length)],
+    ip=[1,2,3,4].map(()=>Math.floor(Math.random()*255)).join(".");
+    l.innerHTML+="[OK] "+x+" :: "+ip+" :: 0x"+Math.floor(Math.random()*16777215).toString(16)+"<br>"
+  }
+  l.scrollTop=l.scrollHeight
+},35);
+setTimeout(()=>{
+  clearInterval(t);
+  document.body.innerHTML="<div style='height:100vh;background:black;color:red;display:flex;align-items:center;justify-content:center;font:bold 9vw Arial;text-align:center'>YOU GOT HACKED LOL</div>"
+},2000)
+</script>
+</body>
+</html>
